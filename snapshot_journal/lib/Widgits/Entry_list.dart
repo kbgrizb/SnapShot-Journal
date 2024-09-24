@@ -8,18 +8,13 @@ typedef entryRemoved = Function(Entry entry, bool remove);
 class EntryList extends StatelessWidget{
 
   EntryList(
-    {required this.entry,
-    required this.remove,
-    required this.removeEntry}
+    {required this.entry}
 
   );
 
 
 final Entry entry;
 
-final bool remove;
-
-final entryRemoved removeEntry;
 
 
 Widget build(BuildContext context) {
