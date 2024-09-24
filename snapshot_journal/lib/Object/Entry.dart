@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 
-class Sheep{
+class Entry{
 
-  Sheep({
+  Entry({
     required this.discription,
     required this.date,
     required this.picture,
@@ -17,6 +17,9 @@ String date;
 Image picture;
 
 
+String getDis(){
+  return discription;
+}
 }
 
 
