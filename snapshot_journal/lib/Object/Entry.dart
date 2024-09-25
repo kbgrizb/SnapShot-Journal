@@ -1,17 +1,15 @@
-import 'package:flutter/material.dart';
-
 
 class Entry{
 
   Entry({
     required this.description,
-    //required this.picture,
+    String? imagePath
     }
   );
 
 String description;
 
-//Image picture;
+String? imagePath;
 
 
 String getDis(){
