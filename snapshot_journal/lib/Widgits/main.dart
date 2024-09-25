@@ -19,7 +19,6 @@ class _JournalListState extends State<JournalList> {
     Entry(description: "Spent some time hanging around cliffs, kinda cool I guess")
   ];
 
-  final _entrySet = <Entry>{};
 
   @override
   void initState() {
