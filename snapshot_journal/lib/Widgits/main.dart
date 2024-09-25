@@ -24,7 +24,6 @@ class _JournalListState extends State<JournalList> {
             "Spent some time hanging around cliffs, kinda cool I guess")
   ];
 
-  final _entrySet = <Entry>{};
 
   @override
   void initState() {
@@ -52,6 +51,9 @@ class _JournalListState extends State<JournalList> {
           );
         }).toList(),
       ),
+    floatingActionButton: FloatingActionButton(
+      child: const Icon(Icons.add_a_photo_outlined),
+      onPressed: null)
     );
   }
 }
