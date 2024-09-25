@@ -16,6 +16,8 @@ class EntryList extends StatelessWidget{
 final Entry entry;
 
 
+final DateTime now = DateTime.now();
+
 
 Widget build(BuildContext context) {
   return ListTile(
@@ -25,7 +27,7 @@ Widget build(BuildContext context) {
       height: 100,
       width: 100,
       ),
-      title: Column(children: [Text(DateTime.now().toString()), 
+      title: Column(children: [Text(now.toString().split(' ')[0]), 
       TextField(maxLength: 100,)]),
 
   );
