@@ -38,6 +38,9 @@ class _JournalListState extends State<JournalList> {
           );
         }).toList(),
       ),
+    floatingActionButton: FloatingActionButton(
+      child: const Icon(Icons.add_a_photo_outlined),
+      onPressed: null)
     );
   }
 }
