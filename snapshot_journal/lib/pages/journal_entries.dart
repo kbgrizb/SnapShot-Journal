@@ -1,7 +1,7 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:snapshot_journal/Object/Entry.dart';
 import 'package:snapshot_journal/Widgits/Entry_list.dart';
+import 'package:snapshot_journal/pages/camera_screen.dart';
 
 class JournalEntries extends StatefulWidget {
   const JournalEntries({
@@ -44,7 +44,14 @@ class _JournalEntriesState extends State<JournalEntries> {
         }).toList(),
       ),
     floatingActionButton: FloatingActionButton(
-      onPressed: () {}
+      child: const Icon(Icons.add_a_photo_outlined),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const CameraScreen()),
+        );
+
+        }
           
     )
     );
