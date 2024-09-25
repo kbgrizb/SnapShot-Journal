@@ -30,7 +30,7 @@ Widget build(BuildContext context) {
       height: 200,
       width: 150,
       ),
-      title: Column(children: [Text(now.toString().split(' ')[0]), 
+      title: Column(children: [Row(children: [Text(now.toString().split(' ')[0])]), // updated the dates position
       TextField(maxLength: 100, decoration: 
       InputDecoration(hintText: "Write something . . .", hintStyle: TextStyle(color: Colors.black.withOpacity(.5))),)]),
 
