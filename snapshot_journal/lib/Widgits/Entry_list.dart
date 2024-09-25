@@ -6,11 +6,11 @@ typedef entryRemoved = Function(Entry entry, bool remove);
 
 
 class EntryList extends StatelessWidget{
-
   EntryList(
-    {required this.entry}
+    {required this.entry, 
+    super.key}
+    );
 
-  );
 
 
 final Entry entry;
@@ -31,7 +31,8 @@ Widget build(BuildContext context) {
       width: 150,
       ),
       title: Column(children: [Text(now.toString().split(' ')[0]), 
-      TextField(maxLength: 100, decoration: InputDecoration(hintText: "Write something . . .", hintStyle: TextStyle(color: Colors.black.withOpacity(.5))),)]),
+      TextField(maxLength: 100, decoration: 
+      InputDecoration(hintText: "Write something . . .", hintStyle: TextStyle(color: Colors.black.withOpacity(.5))),)]),
 
   );
 
