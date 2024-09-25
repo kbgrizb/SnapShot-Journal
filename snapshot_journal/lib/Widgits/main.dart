@@ -16,7 +16,7 @@ class JournalList extends StatefulWidget {
 
 class _JournalListState extends State<JournalList> {
   final List<Entry> entries = [
-    Entry(description: "Spent some time hanging around cliffs, kinda cool I guess")
+    Entry()
   ];
 
 
