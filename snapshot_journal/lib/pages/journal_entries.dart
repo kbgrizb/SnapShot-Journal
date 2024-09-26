@@ -1,23 +1,31 @@
+
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:snapshot_journal/Object/Entry.dart';
 import 'package:snapshot_journal/Widgits/Entry_list.dart';
 import 'package:snapshot_journal/pages/camera_screen.dart';
+import 'package:camera/camera.dart';
 
 class JournalEntries extends StatefulWidget {
   const JournalEntries({
     super.key,
+    required this.firstCamera, // Have this here so that it can get the camera picked in main, then apply the given camera to the camera_screen
   });
+
+  final CameraDescription firstCamera;
+
+  });
+
  @override
   State<JournalEntries> createState() => _JournalEntriesState();
 }
 
-class _JournalEntriesState extends State<JournalEntries> {
-  final List<Entry> entries = [
-    Entry(
-        description:
-            "Spent some time hanging around cliffs, kinda cool I guess")
-  ];
 
+
+class _JournalEntriesState extends State<JournalEntries> {
+  final List<Entry> entries = [Entry()];
+ 
 
   @override
   void initState() {
@@ -43,13 +51,15 @@ class _JournalEntriesState extends State<JournalEntries> {
           );
         }).toList(),
       ),
-    floatingActionButton: FloatingActionButton(
-      child: const Icon(Icons.add_a_photo_outlined),
+
+    floatingActionButton: FloatingActionButton.extended(
+      label: const Text("Entry"),
+      icon: const Icon(Icons.camera_alt_outlined),
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const CameraScreen()),
-        );
+          MaterialPageRoute(builder: (context) => CameraScreen(camera: widget.firstCamera,)));
+
 
         }
           
