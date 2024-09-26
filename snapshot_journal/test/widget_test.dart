@@ -24,6 +24,22 @@ testWidgets('Journal starts with one entry', (tester) async {
     expect(entryFinder, findsOneWidget);
   });
 
+testWidgets('Textfield starts empty and can be edited', (tester) async {
+    await tester.pumpWidget(const MaterialApp(
+      home: JournalEntries(firstCamera: CameraDescription(name: 'name', lensDirection: CameraLensDirection.back, sensorOrientation: 1))));
+
+      expect(find.byType(TextField), findsOneWidget);
+
+      await tester.tap(find.byType(TextField));
+      await tester.pump();
+      expect(find.text("starter text"), findsNothing);
+
+      await tester.enterText(find.byType(TextField), 'My day was great');
+      await tester.pump();
+      expect(find.text("My day was great"), findsOneWidget);
+
+});
+
 
   /*testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
