@@ -41,7 +41,9 @@ class _JournalEntriesState extends State<JournalEntries> {
           );
         }).toList(),
       ),
-    floatingActionButton: FloatingActionButton(
+    floatingActionButton: FloatingActionButton.extended(
+      label: const Text("Entry"),
+      icon: const Icon(Icons.camera_alt_outlined),
       onPressed: () {}
           
     )
