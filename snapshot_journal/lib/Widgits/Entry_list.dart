@@ -7,6 +7,7 @@ typedef entryRemoved = Function(Entry entry, bool remove);
 
 
 class EntryList extends StatelessWidget{
+
   EntryList(
     {required this.entry, 
     super.key}
