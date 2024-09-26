@@ -3,6 +3,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path; // gives a shortend name for the import
 import 'package:snapshot_journal/pages/journal_entries.dart';
+import 'package:path_provider/path_provider.dart';
 
 
 class CameraScreen extends StatefulWidget {
@@ -41,6 +42,24 @@ class _CameraScreenState extends State<CameraScreen> {
     _controller.dispose();
     super.dispose();
   }
+
+  Future<String> _takePicture() async {
+    try {
+      await _initializeControllerFuture;
+
+      final directory = await getApplicationDocumentsDirectory();
+      final imagePath = path.join(directory.path, '${DateTime.now()}.png');
+
+      await _controller.takePicture(imagePath);
+
+      return imagePath;
+    } catch (e) {
+      print('Error capturing picture: $e');
+      throw Exception('Error taking picture');
+    }
+  }
+
+
 
 
 
