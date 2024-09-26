@@ -1,3 +1,4 @@
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -13,10 +14,13 @@ class JournalEntries extends StatefulWidget {
   });
 
   final CameraDescription firstCamera;
-  
+
+  });
+
  @override
   State<JournalEntries> createState() => _JournalEntriesState();
 }
+
 
 
 class _JournalEntriesState extends State<JournalEntries> {
@@ -27,7 +31,6 @@ class _JournalEntriesState extends State<JournalEntries> {
   void initState() {
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context)  {
@@ -48,6 +51,7 @@ class _JournalEntriesState extends State<JournalEntries> {
           );
         }).toList(),
       ),
+
     floatingActionButton: FloatingActionButton.extended(
       label: const Text("Entry"),
       icon: const Icon(Icons.camera_alt_outlined),
@@ -55,6 +59,7 @@ class _JournalEntriesState extends State<JournalEntries> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => CameraScreen(camera: widget.firstCamera,)));
+
 
         }
           
