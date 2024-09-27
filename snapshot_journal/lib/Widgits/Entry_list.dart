@@ -24,7 +24,8 @@ final DateTime now = DateTime.now();
 
 
 
-Widget build(BuildContext context) {
+@override
+  Widget build(BuildContext context) {
   return ListTile(
     // Need to implemnt the ability to pull an new image
     leading: entry.imagePath != null
