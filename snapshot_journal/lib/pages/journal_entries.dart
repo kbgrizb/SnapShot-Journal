@@ -22,12 +22,12 @@ class _JournalEntriesState extends State<JournalEntries> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome to SnapShot!'),
+        title: const Text('\n Welcome to SnapShot!'),
         centerTitle: true,
         bottom: const PreferredSize(
           preferredSize: Size.zero,
           child: Text(
-              "To use Snapshot, add a new picture then enter a text description."),
+              "Welcome to SnapShot! To use Snapshot, add a new picture then enter a text description."),
         ),
       ),
       body: ListView(
