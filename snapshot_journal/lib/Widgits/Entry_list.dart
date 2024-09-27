@@ -4,30 +4,18 @@ import 'dart:io';
 
 typedef entryRemoved = Function(Entry entry, bool remove);
 
+class EntryList extends StatelessWidget {
+  EntryList({required this.entry, super.key});
 
+  final Entry entry;
 
-class EntryList extends StatelessWidget{
+  final DateTime now = DateTime.now();
 
-  EntryList(
-    {required this.entry, 
-    super.key}
-    );
-
-
-
-final Entry entry;
-
-
-final DateTime now = DateTime.now();
-
-
-
-
-
-Widget build(BuildContext context) {
-  return ListTile(
-    // Need to implemnt the ability to pull an new image
-    leading: entry.imagePath != null
+  Widget build(BuildContext context) {
+    print("hello again: " + entry.imagePath!);
+    return ListTile(
+      // Need to implemnt the ability to pull an new image
+      leading: entry.imagePath != null
           ? Image.file(
               File(entry.imagePath!),
               height: 100,
@@ -35,21 +23,17 @@ Widget build(BuildContext context) {
               fit: BoxFit.cover,
             )
           : const Icon(Icons.image, size: 100),
-      title: Column(children: [Row(children: [Text(now.toString().split(' ')[0])]), // updated the dates position
-      TextField(maxLength: 100, decoration: 
-      InputDecoration(hintText: "Write something . . .", hintStyle: TextStyle(color: Colors.black.withOpacity(.5))),)]),
-
-  );
-
-
-
+      title: Column(children: [
+        Row(children: [
+          Text(now.toString().split(' ')[0])
+        ]), // updated the dates position
+        TextField(
+          maxLength: 100,
+          decoration: InputDecoration(
+              hintText: "Write something . . .",
+              hintStyle: TextStyle(color: Colors.black.withOpacity(.5))),
+        )
+      ]),
+    );
+  }
 }
-
-
-
-
-
-
-
-}
-

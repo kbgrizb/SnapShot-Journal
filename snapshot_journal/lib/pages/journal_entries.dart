@@ -5,7 +5,6 @@ import 'package:snapshot_journal/pages/camera_screen.dart';
 import 'package:camera/camera.dart';
 import 'package:snapshot_journal/Widgits/imageController.dart';
 
-
 class JournalEntries extends StatefulWidget {
   const JournalEntries({
     super.key,
@@ -27,7 +26,8 @@ class _JournalEntriesState extends State<JournalEntries> {
         centerTitle: true,
         bottom: const PreferredSize(
           preferredSize: Size.zero,
-          child: Text("To use Snapshot, add a new picture then enter a text description."),
+          child: Text(
+              "To use Snapshot, add a new picture then enter a text description."),
         ),
       ),
       body: ListView(
@@ -62,6 +62,7 @@ class _JournalEntriesState extends State<JournalEntries> {
             // Add the new entry to the list with the image
             setState(() {
               entries.add(Entry(imagePath: imageController.image!.path));
+              print("hello: " + imageController.image!.path);
             });
 
             // Clear the image from the controller
