@@ -6,7 +6,7 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-   final cameras = await availableCameras(); // Seems to be having issues with await
+  final cameras = await availableCameras(); // Seems to be having issues with await
   final firstCamera = cameras.first;
   
 

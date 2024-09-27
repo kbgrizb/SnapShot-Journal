@@ -28,6 +28,12 @@ class _JournalEntriesState extends State<JournalEntries> {
     super.initState();
   }
 
+  void _handleNewEntry(Entry entry) {
+    setState(() {
+      entries.insert(0, entry);
+    });
+  }
+
 
   @override
   Widget build(BuildContext context)  {
