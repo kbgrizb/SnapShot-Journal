@@ -60,7 +60,7 @@ class _JournalEntriesState extends State<JournalEntries> {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => CameraScreen(camera: widget.firstCamera,)));
+          MaterialPageRoute(builder: (context) => const CameraScreen()));
 
         }
           
