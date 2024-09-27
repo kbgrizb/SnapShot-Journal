@@ -8,8 +8,10 @@ import 'package:snapshot_journal/Widgits/imageController.dart';
 
 class JournalEntries extends StatefulWidget {
   const JournalEntries({
-    super.key,
+    super.key, required CameraDescription firstCamera,
   });
+
+
 
   @override
   State<JournalEntries> createState() => _JournalEntriesState();
