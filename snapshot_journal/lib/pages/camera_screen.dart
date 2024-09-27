@@ -1,3 +1,4 @@
+
 import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
@@ -27,6 +28,7 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   void initState() {
     super.initState();
+
 
     _controller = CameraController(
       widget.camera,
