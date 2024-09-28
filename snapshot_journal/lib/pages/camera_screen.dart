@@ -57,6 +57,7 @@ class _CameraScreenState extends State<CameraScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        key: const Key("AddEntryButton"),
         onPressed: () async {
           try {
             // Ensure the camera is initialized
