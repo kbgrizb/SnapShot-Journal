@@ -1,3 +1,25 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:snapshot_journal/Object/Entry.dart';
+import 'package:camera/camera.dart';
+import 'package:snapshot_journal/Widgits/Entry_list.dart';
+import 'package:snapshot_journal/Widgits/main.dart';
+import 'package:snapshot_journal/pages/journal_entries.dart';
+
+void main() {
+  testWidgets('Journal starts with no entries', (tester) async {
+    await tester.pumpWidget(const MaterialApp(
+      home: JournalEntries(firstCamera: CameraDescription(name: 'name', lensDirection: CameraLensDirection.back, sensorOrientation: 1))));
+        
+      final entryFinder = find.byType(EntryList);
+
+    expect(entryFinder, findsNothing);
+  });
+}
+
+
+
+
 // This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester
