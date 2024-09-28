@@ -7,15 +7,18 @@ The app is useful because it provides a simple and organized way to keep a visua
 
 Screen Shots:
 
-![IMG_4190](https://github.com/user-attachments/assets/e3013a04-e978-4ccd-aca2-ce5cb99479c6)
+
+<img src="https://github.com/user-attachments/assets/e33f4946-d31b-40e7-8876-9558390a880a" width=300 />
 -------------------------------------------------------------
-![IMG_4191](https://github.com/user-attachments/assets/c6697afe-7852-4962-9d5b-08b227d00042)
+<img src="https://github.com/user-attachments/assets/5a4ba75e-56b4-42f4-8ecf-f1dff25444bc" width=300 />
 -------------------------------------------------------------
-![IMG_4192](https://github.com/user-attachments/assets/74eedbe4-38e7-497d-babf-7ef1b43abb29)
+<img src ="https://github.com/user-attachments/assets/c09d267c-8c90-43ba-9183-8901c2c1dc9c" width=300 />
 -------------------------------------------------------------
-![IMG_4193](https://github.com/user-attachments/assets/00ab840b-8968-4e4f-9f7a-3fc8e025a7d8)
+<img src = "https://github.com/user-attachments/assets/a165201c-b19c-4dc5-8aef-e45772e2e719" width=300 />
 -------------------------------------------------------------
-![IMG_4194](https://github.com/user-attachments/assets/ecad276c-1a8c-435e-9c76-b079de7d60d0)
+
+
+
 
 
 
