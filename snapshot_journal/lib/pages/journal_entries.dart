@@ -12,6 +12,8 @@ class JournalEntries extends StatefulWidget {
     super.key,
   });
 
+
+
   @override
   State<JournalEntries> createState() => _JournalEntriesState();
 }
@@ -49,7 +51,6 @@ class _JournalEntriesState extends State<JournalEntries> {
           final cameras = await availableCameras();
           final firstCamera = cameras.first;
 
-          // Navigate to the CameraScreen and wait for the image
           await Navigator.push(
             context,
             MaterialPageRoute(
