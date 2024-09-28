@@ -4,21 +4,10 @@ import 'dart:io';
 
 typedef entryRemoved = Function(Entry entry, bool remove);
 
+class EntryList extends StatelessWidget {
+  EntryList({required this.entry, super.key});
 
-
-class EntryList extends StatelessWidget{
-
-  EntryList(
-    {required this.entry,
-    required this.image,
-    super.key}
-    );
-
-
-
-final Entry entry;
-
-final String image;
+  final Entry entry;
 
   final DateTime now = DateTime.now();
 
@@ -28,7 +17,7 @@ final String image;
       // Need to implemnt the ability to pull an new image
       leading: entry.imagePath != null
           ? Image.file(
-              File(image),
+              File(entry.imagePath!),
               height: 100,
               width: 100,
               fit: BoxFit.cover,

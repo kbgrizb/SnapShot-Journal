@@ -2,18 +2,19 @@ import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
-typedef EntryListCallback = Function(String imagePath);
+import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
+import 'package:snapshot_journal/Widgits/imageController.dart';
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({
     super.key,
     required this.camera,
-    required this.newItem,
+    required this.imageController,
   });
 
   final CameraDescription camera;
-  final EntryListCallback newItem;
+  final ImageController imageController;
 
   @override
   State<CameraScreen> createState() => _CameraScreenState();
@@ -58,35 +59,23 @@ class _CameraScreenState extends State<CameraScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           try {
+            // Ensure the camera is initialized
             await _initializeControllerFuture;
 
-<<<<<<< Updated upstream
             // Get the directory to save the picture
             final directory = await getApplicationDocumentsDirectory();
             final imagePath =
                 path.join(directory.path, 'image_${DateTime.now()}.png');
 
-=======
->>>>>>> Stashed changes
             // Capture the image
-            final image = await _controller.takePicture();
+            final XFile image = await _controller.takePicture();
 
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
-            print("Taking Picture");
+            // Store the image in the ImageController
+            widget.imageController.setImage(File(image.path));
 
-            // Pass the image path back
-            widget.newItem(image.path);
-
-            // Pop back to the previous screen
-            Navigator.pop(context);
+            // Go back to the journal page with the image
+            if (!mounted) return;
+            Navigator.of(context).pop();
           } catch (e) {
             print('Error taking picture: $e');
           }

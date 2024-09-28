@@ -74,4 +74,3 @@ class _JournalEntriesState extends State<JournalEntries> {
       )
   );}
   }
-}
