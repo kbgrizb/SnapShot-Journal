@@ -1,3 +1,6 @@
+
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:snapshot_journal/Object/Entry.dart';
 import 'package:snapshot_journal/Widgits/Entry_list.dart';
@@ -9,6 +12,8 @@ class JournalEntries extends StatefulWidget {
   const JournalEntries({
     super.key,
   });
+
+
 
   @override
   State<JournalEntries> createState() => _JournalEntriesState();
@@ -39,6 +44,7 @@ class _JournalEntriesState extends State<JournalEntries> {
         }).toList(),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        key: const Key("ToCameraButton"),
         label: const Text("Entry"),
         icon: const Icon(Icons.camera_alt_outlined),
         onPressed: () async {
@@ -46,7 +52,6 @@ class _JournalEntriesState extends State<JournalEntries> {
           final cameras = await availableCameras();
           final firstCamera = cameras.first;
 
-          // Navigate to the CameraScreen and wait for the image
           await Navigator.push(
             context,
             MaterialPageRoute(
@@ -69,7 +74,6 @@ class _JournalEntriesState extends State<JournalEntries> {
             imageController.clear();
           }
         },
-      ),
-    );
+      )
+  );}
   }
-}
