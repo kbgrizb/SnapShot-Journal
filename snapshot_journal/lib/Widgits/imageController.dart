@@ -1,5 +1,7 @@
 import 'dart:io';
 
+// meant for image communication
+
 class ImageController {
   File? _image;
 
