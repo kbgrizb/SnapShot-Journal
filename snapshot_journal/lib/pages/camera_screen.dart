@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
@@ -28,7 +27,6 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   void initState() {
     super.initState();
-
 
     _controller = CameraController(
       widget.camera,
@@ -66,7 +64,8 @@ class _CameraScreenState extends State<CameraScreen> {
 
             // Get the directory to save the picture
             final directory = await getApplicationDocumentsDirectory();
-            final imagePath = path.join(directory.path, 'image_${DateTime.now()}.png');
+            final imagePath =
+                path.join(directory.path, 'image_${DateTime.now()}.png');
 
             // Capture the image
             final XFile image = await _controller.takePicture();
