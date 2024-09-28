@@ -44,6 +44,7 @@ class _JournalEntriesState extends State<JournalEntries> {
         }).toList(),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        key: const Key("ToCameraButton"),
         label: const Text("Entry"),
         icon: const Icon(Icons.camera_alt_outlined),
         onPressed: () async {
