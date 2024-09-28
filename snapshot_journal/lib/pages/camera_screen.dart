@@ -2,19 +2,18 @@ import 'dart:async';
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart' as path;
-import 'package:path_provider/path_provider.dart';
-import 'package:snapshot_journal/Widgits/imageController.dart';
+
+typedef EntryListCallback = Function(String imagePath);
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({
     super.key,
     required this.camera,
-    required this.imageController,
+    required this.newItem,
   });
 
   final CameraDescription camera;
-  final ImageController imageController;
+  final EntryListCallback newItem;
 
   @override
   State<CameraScreen> createState() => _CameraScreenState();
@@ -59,23 +58,35 @@ class _CameraScreenState extends State<CameraScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           try {
-            // Ensure the camera is initialized
             await _initializeControllerFuture;
 
+<<<<<<< Updated upstream
             // Get the directory to save the picture
             final directory = await getApplicationDocumentsDirectory();
             final imagePath =
                 path.join(directory.path, 'image_${DateTime.now()}.png');
 
+=======
+>>>>>>> Stashed changes
             // Capture the image
-            final XFile image = await _controller.takePicture();
+            final image = await _controller.takePicture();
 
-            // Store the image in the ImageController
-            widget.imageController.setImage(File(image.path));
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
+            print("Taking Picture");
 
-            // Go back to the journal page with the image
-            if (!mounted) return;
-            Navigator.of(context).pop();
+            // Pass the image path back
+            widget.newItem(image.path);
+
+            // Pop back to the previous screen
+            Navigator.pop(context);
           } catch (e) {
             print('Error taking picture: $e');
           }
@@ -85,3 +96,4 @@ class _CameraScreenState extends State<CameraScreen> {
     );
   }
 }
+

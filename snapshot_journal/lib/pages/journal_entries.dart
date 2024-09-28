@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:snapshot_journal/Object/Entry.dart';
 import 'package:snapshot_journal/Widgits/Entry_list.dart';
@@ -69,7 +71,7 @@ class _JournalEntriesState extends State<JournalEntries> {
             imageController.clear();
           }
         },
-      ),
-    );
+      )
+  );}
   }
 }
