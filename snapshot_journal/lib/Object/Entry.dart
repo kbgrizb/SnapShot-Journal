@@ -1,15 +1,7 @@
+class Entry {
+  const Entry({
+    required this.imagePath,
+  });
 
-class Entry{
-
-  Entry({
-    String? imagePath,
-    }
-  );
-
-
-String? imagePath;
-
-
+  final String imagePath;
 }
-
-
