@@ -10,7 +10,7 @@ import 'package:snapshot_journal/Widgits/imageController.dart';
 
 class JournalEntries extends StatefulWidget {
   const JournalEntries({
-    super.key, required CameraDescription firstCamera,
+    super.key,
   });
 
 
@@ -51,15 +51,6 @@ class _JournalEntriesState extends State<JournalEntries> {
           final cameras = await availableCameras();
           final firstCamera = cameras.first;
 
-    floatingActionButton: FloatingActionButton.extended(
-      key: const Key("ToCameraButton"),
-      label: const Text("Entry"),
-      icon: const Icon(Icons.camera_alt_outlined),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => CameraScreen(camera: widget.firstCamera,)));
-          // Navigate to the CameraScreen and wait for the image
           await Navigator.push(
             context,
             MaterialPageRoute(
@@ -82,7 +73,6 @@ class _JournalEntriesState extends State<JournalEntries> {
             imageController.clear();
           }
         },
-      ),
-    );
+      )
+  );}
   }
-}
