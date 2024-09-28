@@ -7,6 +7,7 @@ import 'package:snapshot_journal/Widgits/imageController.dart';
 import 'package:snapshot_journal/Widgits/main.dart';
 import 'package:snapshot_journal/pages/camera_screen.dart';
 import 'package:snapshot_journal/pages/journal_entries.dart';
+import 'dart:io';
 
 
 void main() {
@@ -61,4 +62,32 @@ testWidgets('EntryList displays image and text field', (WidgetTester tester) asy
     expect(find.text("Write something . . ."), findsOneWidget);
 });
 
+group('ImageController', () {
+    late ImageController imageController;
+
+    setUp(() {
+      imageController = ImageController(); // Initialize a new instance before each test
+    });
+
+    test('should initially have no image', () {
+      expect(imageController.image, isNull); // Check that the initial image is null
+    });
+
+    test('should set the image correctly', () {
+      final testImage = File('path/to/fake_image.png'); // Mock image file
+      imageController.setImage(testImage); // Set the image
+
+      expect(imageController.image, isNotNull); // Check that the image is not null
+      expect(imageController.image!.path, equals(testImage.path)); // Verify the image path
+    });
+
+    test('should clear the image', () {
+      final testImage = File('path/to/fake_image.png');
+      imageController.setImage(testImage); // Set the image
+      imageController.clear(); // Clear the image
+
+      expect(imageController.image, isNull); // Check that the image is null after clearing
+    });
+  });
 }
+
