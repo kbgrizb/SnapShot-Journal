@@ -20,6 +20,15 @@ class _JournalEntriesState extends State<JournalEntries> {
   final List<Entry> entries = [];
   final ImageController imageController = ImageController();
 
+  //update removal for journal entries
+  void removeEntry(Entry entry, bool remove) {
+    if (remove) {
+      setState(() {
+        entries.remove(entry);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,55 +46,41 @@ class _JournalEntriesState extends State<JournalEntries> {
         children: entries.map((entry) {
           return EntryList(
             entry: entry,
+            onEntryRemoved: removeEntry,
           );
         }).toList(),
       ),
-      // Altered to allow multiple buttons
-      floatingActionButton: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // New button for deleting entries
-          FloatingActionButton(
-            onPressed: () {
-              //launch dialog or page to delete entries
-            },
-            child: const Icon(Icons.delete),
-          ),
-          // Spacing for cleaner separation between buttons
-          const SizedBox(width: 8),
-          FloatingActionButton.extended(
-            key: const Key("ToCameraButton"),
-            label: const Text("Entry"),
-            icon: const Icon(Icons.camera_alt_outlined),
-            onPressed: () async {
-              // Find the first available camera
-              final cameras = await availableCameras();
-              final firstCamera = cameras.first;
+      floatingActionButton: FloatingActionButton.extended(
+        key: const Key("ToCameraButton"),
+        label: const Text("Entry"),
+        icon: const Icon(Icons.camera_alt_outlined),
+        onPressed: () async {
+          // Find the first available camera
+          final cameras = await availableCameras();
+          final firstCamera = cameras.first;
 
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CameraScreen(
-                    camera: firstCamera,
-                    imageController: imageController,
-                  ),
-                ),
-              );
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CameraScreen(
+                camera: firstCamera,
+                imageController: imageController,
+              ),
+            ),
+          );
 
-              // Check if an image was captured
-              if (imageController.image != null) {
-                // Add the new entry to the list with the image
-                setState(() {
-                  entries.add(Entry(imagePath: imageController.image!.path));
-                  print("hello: " + imageController.image!.path);
-                });
+          // Check if an image was captured
+          if (imageController.image != null) {
+            // Add the new entry to the list with the image
+            setState(() {
+              entries.add(Entry(imagePath: imageController.image!.path));
+              print("hello: " + imageController.image!.path);
+            });
 
-                // Clear the image from the controller
-                imageController.clear();
-              }
-            },
-          ),
-        ],
+            // Clear the image from the controller
+            imageController.clear();
+          }
+        },
       ),
     );
   }
