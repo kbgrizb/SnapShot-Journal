@@ -12,8 +12,6 @@ class JournalEntries extends StatefulWidget {
     super.key,
   });
 
-
-
   @override
   State<JournalEntries> createState() => _JournalEntriesState();
 }
@@ -21,6 +19,15 @@ class JournalEntries extends StatefulWidget {
 class _JournalEntriesState extends State<JournalEntries> {
   final List<Entry> entries = [];
   final ImageController imageController = ImageController();
+
+  //update removal for journal entries
+  void removeEntry(Entry entry, bool remove) {
+    if (remove) {
+      setState(() {
+        entries.remove(entry);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +46,7 @@ class _JournalEntriesState extends State<JournalEntries> {
         children: entries.map((entry) {
           return EntryList(
             entry: entry,
+            onEntryRemoved: removeEntry,
           );
         }).toList(),
       ),
@@ -73,6 +81,7 @@ class _JournalEntriesState extends State<JournalEntries> {
             imageController.clear();
           }
         },
-      )
-  );}
+      ),
+    );
   }
+}
