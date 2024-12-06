@@ -29,8 +29,8 @@ class EntryList extends StatelessWidget {
           : const Icon(Icons.image, size: 100),
       title: Column(children: [
         Row(children: [
-          Text(now.toString().split(' ')[0]),
-          const SizedBox(width: 120.0),
+          Text(now.toString().split(' ')[0], style: TextStyle(color: Colors.black, fontFamily: "Hand", fontWeight: FontWeight.bold)),
+          const SizedBox(width: 115.0),
           // New delete button for each individual entry
           IconButton(
             onPressed: () {
@@ -43,14 +43,16 @@ class EntryList extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.delete),
-            color: Color.fromARGB(212, 199, 199, 216),
+            color: Color.fromARGB(255, 255, 0, 0),
           )
         ]), // updated the dates position
         TextField(
           maxLength: 100,
           decoration: InputDecoration(
               hintText: "Write something . . .",
-              hintStyle: TextStyle(color: Colors.black.withOpacity(.5))),
+              hintStyle: TextStyle(color: Colors.black.withOpacity(.5)),
+              counterStyle: TextStyle(color: Colors.black)),
+          style: TextStyle(color: Colors.black, fontFamily: "Hand"),
         )
       ]),
     );
