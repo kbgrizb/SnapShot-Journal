@@ -33,15 +33,37 @@ class _JournalEntriesState extends State<JournalEntries> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('\n Welcome to SnapShot!'),
-        centerTitle: true,
-        bottom: const PreferredSize(
-          preferredSize: Size.zero,
-          child: Text(
-              "Welcome to SnapShot! To use Snapshot, add a new picture then enter a text description."),
+  title: const Text(
+    'Welcome to SnapShot!',
+    style: TextStyle(color: Colors.white, fontFamily: "Hand", fontSize: 30),
+  ),
+  backgroundColor: const Color.fromARGB(255, 75, 149, 209),
+  centerTitle: true,
+  bottom: const PreferredSize(
+    preferredSize: Size.fromHeight(30), 
+    child: Padding(
+      padding: EdgeInsets.all(8.0), 
+      child: Text(
+        "Welcome to SnapShot! To use Snapshot, add a new picture then enter a text description.",
+        textAlign: TextAlign.center, 
+        style: TextStyle(
+          color: Colors.white, 
+          fontSize: 14, 
         ),
       ),
-      body: ListView(
+    ),
+  ),
+),
+
+      body: Stack(
+      children: [
+        Image.asset(
+          'assets/page2.jpg', 
+          fit: BoxFit.fill,
+          width: double.infinity,
+          height: double.infinity,
+        ),
+        ListView(
         padding: const EdgeInsets.symmetric(vertical: 15.0),
         children: entries.map((entry) {
           return EntryList(
@@ -50,7 +72,10 @@ class _JournalEntriesState extends State<JournalEntries> {
           );
         }).toList(),
       ),
+      ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.blue,
         key: const Key("ToCameraButton"),
         label: const Text("Entry"),
         icon: const Icon(Icons.camera_alt_outlined),
